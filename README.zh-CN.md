@@ -1,66 +1,105 @@
 # Codex Project Manager
 
-[![Windows checks](https://github.com/Cottzz/codex-project-manager/actions/workflows/checks.yml/badge.svg)](https://github.com/Cottzz/codex-project-manager/actions/workflows/checks.yml) · [MIT](LICENSE)
+[MIT](LICENSE) · [v0.1.0-alpha.3](https://github.com/Cottzz/codex-project-manager/releases/tag/v0.1.0-alpha.3) · [Windows checks](https://github.com/Cottzz/codex-project-manager/actions/workflows/checks.yml)
 
-**面向 Codex 与 AI 编码协作的本地项目管理工作区。**
+### 让 Codex 项目跨对话继续推进。
 
-将任务、依赖、决定、证据、产物和聊天关联保存在同一个持久项目图中，让项目能够跨对话接续。聊天摘要用于定位，实际原件与验证决定状态。
+不用每次从旧聊天重新拼出计划。把下一步任务、依赖、决定、证据和聊天关联放在同一个本地工作区，清楚知道哪些工作还需要人工决定。
 
-[下载 alpha](https://github.com/Cottzz/codex-project-manager/releases/tag/v0.1.0-alpha.2) · [English](README.md) · [使用说明](docs/user-guide.md) · [架构](docs/architecture.md) · [路线图](docs/roadmap.md)
+[English](README.md) · [先体验示例](#先体验示例) · [接入自己的项目](#接入自己的项目) · [使用说明](docs/user-guide.md)
 
-![当前应用，使用合成演示数据](docs/images/workspace.png)
+[![项目总览：可执行任务、依赖阻塞和人工确认](docs/presentation/overview-focus.png)](docs/presentation/overview-full.png)
 
-公开版本已采用「白色内容＋浅灰画布」新版界面。截图来自实际本地服务与随包合成项目，下载后使用同一界面。[查看五条核心流程](docs/workflows.md)。
+*实际运行的白系新版界面，内容来自随附的“发布通知”合成项目。点击图片可查看完整工作区。*
 
-## 它解决什么问题
+[观看短演示](docs/presentation/walkthrough.mp4) · [跟随同一个项目操作](docs/presentation/story.md)
 
-当一个Codex项目持续多个对话时，你需要知道：现在能执行什么、被什么阻塞、哪些依据已经变化、成果和原件在哪里。工作区用本地状态回答这些问题，并提供网页、CLI和MCP入口。
+[下载视频](https://github.com/Cottzz/codex-project-manager/releases/download/v0.1.0-alpha.3/walkthrough.mp4) · [简体中文字幕](docs/presentation/walkthrough.zh.vtt) · [English captions](docs/presentation/walkthrough.en.vtt)
 
-这是独立社区工具，不是OpenAI官方产品。它没有代码编辑器、托管团队权限或自动批准机制。
+## 当项目超过一个聊天窗口
 
-## 快速开始
+计划在一个对话里，实现在另一个对话里，评审又开了新对话。继续之前，你需要找到现在能做的任务、弄清阻塞原因，并确认此前依据是否还有效。
 
-需要Python 3.11+及macOS/Linux。Windows用户可使用Ubuntu WSL；核心服务依赖Unix文件锁，不支持原生Windows。基础项目管理只依赖Python标准库，Codex与代码解析器为可选依赖。
+Codex Project Manager 将这些记录保存在本地。网页、CLI 和 MCP 读取同一份项目状态。内容需要明确登记或同步；它不会自动捕获所有对话，也不会接管正在运行的桌面聊天。
+
+它适用于需要跨对话接续和追溯决定的项目。一次问答或简短个人待办，可能无需这套管理方式。
+
+## 用三条流程推进项目
+
+### 1. 找到下一任务，先核前置条件
+
+进入任务看板，选择任务，查看依赖、必要检查与原始内容。“进行中”“待验证”和“待人工处理”分别记录。
+
+[![任务前置条件与可用操作](docs/presentation/task-focus.png)](docs/presentation/tasks-full.png)
+
+### 2. 看清受阻工作在等待什么
+
+沿明确的依赖找到前置任务。下图仅解释 N03–N05 的实际关系，是说明图，不是图谱画布截图。图关系帮助定位相关工作，不代表图外不存在其他关系。复杂全图可能需要放大并结合对象详情阅读。
+
+[![基于案例实际关系绘制的依赖说明图，非应用截图](docs/presentation/dependency-story.png)](docs/presentation/graph-full.png)
+
+### 3. 接受结果前，回到原始依据
+
+打开原文件，核对登记版本与当前版本。来源变化后需要重新审查。文件生成或聊天结束，不会自动完成任务，也不会批准发布。
+
+[![原始来源已变化，保留版本差异提示](docs/presentation/source-focus.png)](docs/presentation/source-full.png)
+
+示例包含 3 个阶段、16 个任务、明确依赖、实际样例文件、未知检查和一个待人工门禁。前三项完成只代表样例文件检查通过，不代表业务功能已经实现。[查看案例与预期状态](docs/presentation/story.md)。
+
+## 先体验示例
+
+**环境要求：** Python 3.11+，macOS 或 Linux。Windows 使用 Ubuntu WSL；核心服务依赖 Unix 文件锁。基础项目管理仅使用 Python 标准库。此示例不需要模型账号；随附简体字体采用 OFL 许可。
+
+在终端运行：
 
 ```sh
 git clone https://github.com/Cottzz/codex-project-manager.git
 cd codex-project-manager
-python3 pgw.py --root "$PWD" init --name "我的项目" --goal "交付有依据且可验证的成果"
-python3 pgw.py --root "$PWD" serve --port 8766
+python3 examples/create_walkthrough.py "$HOME/cpm-notification-demo"
+python3 pgw.py --root "$HOME/cpm-notification-demo" serve --port 8767
 ```
 
-打开http://127.0.0.1:8766/。终端保持运行，Ctrl-C停止，再次运行serve接续。不重复初始化已有项目。端口被占用时使用其他端口。
+打开 **http://127.0.0.1:8767/**。进入 **任务看板**，打开 **N05**，查看它为什么等待 **N04**。再进入 **证据与判断**，选择 **E04**，点击 **查看原始来源**，核对原文件变化。
 
-先体验合成示例：
+示例拒绝已有目录；请换一个新路径，不要覆盖。终端需保持运行，Ctrl-C 停止服务。恢复时只重新运行最后一条 serve 命令。示例不调用 Codex、不发送通知，也不批准待人工门禁。
+
+## 接入自己的项目
+
+将工具源码目录与被管理的项目目录分开。选择已有项目目录；仅在尚未接入时初始化一次：
 
 ```sh
-python3 scripts/create_demo.py /tmp/cpm-demo
-python3 pgw.py --root /tmp/cpm-demo serve --port 8767
+python3 /absolute/codex-project-manager/pgw.py --root /absolute/my-project init --name "My project" --goal "Ship a verified result"
+python3 /absolute/codex-project-manager/pgw.py --root /absolute/my-project serve --port 8766
 ```
 
-示例包含任务、依赖、证据和人工门禁，不启动Codex、不发送消息、不代替人工决定。
+打开 **http://127.0.0.1:8766/**，写入前确认项目名。初始化建立空状态，不会将已有文件或聊天自动导入为已验证历史。已有状态的项目只需 serve。端口已占用时改用其他端口，不要停止无关服务。
 
-## 能力与入口
+项目状态保存在所选目录的 `.project-graph/` 中，证据原文件仍在原位置。[备份与恢复](docs/data-and-recovery.md)。
 
-- 通过任务前沿核对执行前置；任务完成与技术验证、用户验收分别记录。
-- 按明确目录接入多个项目，状态与操作身份隔离。
-- 用来源定位、SHA与版本记录证据和成果；变化后重核受影响验证。
-- 查询有界关系图、静态代码候选和上下文；动态及图外关系不假定已知。
-- 发现和关联已有Codex聊天；受管聊天采用独立App Server连接。
-- CLI与网页读取同一追加事件日志，MCP使用相同工具合同。
+## 从 CLI 或 MCP 操作
 
 ```sh
-python3 pgw.py --root /项目绝对路径 call project_status
-python3 pgw.py --root /项目绝对路径 call current_frontier
-python3 pgw.py tools
+python3 /absolute/codex-project-manager/pgw.py --root /absolute/my-project call project_status
+python3 /absolute/codex-project-manager/pgw.py --root /absolute/my-project call current_frontier
+python3 /absolute/codex-project-manager/pgw.py tools
 ```
 
-写入须稳定request_id；版本更新须expected_version。冲突先回读，不能强制覆盖。准确人工请求只能由用户作决定。
+写入使用工具返回的实际参数合同，保留项目身份、请求 ID 和版本检查；人工批准仍须明确决定。[MCP 配置](docs/integrations.md)。
 
-## 适用范围
+## 可选连接与当前边界
 
-首个公开版本为alpha。[验证范围](docs/validation.md)与[已知限制](docs/limitations.md)如实列明。桌面聊天发现不等于共享控制；聊天结束不等于任务完成；原全图适应画布仍有小字限制；长期内存、连续使用舒适度和完整读屏没有全面通过证据。
+|能力|适用范围|
+|---|---|
+|已有 Codex 聊天|配置 Codex CLI 后可发现、预览和关联；不共享控制正在运行的桌面聊天。|
+|工作区受管聊天|独立 App Server 会话；保留准确请求身份和人工审批。|
+|代码关系|需单独配置确定性索引；返回静态候选、有界查询和明确未知项。[配置说明](docs/code-index.md)。|
+|多个项目|各自持久状态独立，操作前核对当前选中项目。|
+|本地使用|单个可信用户、回环服务；没有托管多用户权限系统。|
 
-本地服务只监听回环地址，采用单个可信用户假设；没有多用户远程权限系统，不应直接暴露到互联网。项目数据保存在你指定目录；可选Codex、MCP、SSH使用独立配置和明确操作。
+当前为公开 **alpha**，不是 OpenAI 官方产品。完整无障碍、长期阅读舒适度与长期内存行为尚未全面验证。见[已知限制](docs/limitations.md)与[版本验证](docs/validation.md)。CI 徽章仅代表对应工作流的检查，不覆盖全部能力。
 
-[集成配置](docs/integrations.md) · [代码索引](docs/code-index.md) · [数据与恢复](docs/data-and-recovery.md) · [参与贡献](CONTRIBUTING.md) · [MIT许可](LICENSE)
+## 了解、反馈与参与
+
+[使用说明](docs/user-guide.md) · [架构](docs/architecture.md) · [路线图](docs/roadmap.md) · [贡献指南](CONTRIBUTING.md) · [报告问题](https://github.com/Cottzz/codex-project-manager/issues/new/choose) · [安全报告](SECURITY.md)
+
+应用代码采用 [MIT](LICENSE)，第三方组件保留各自许可。[第三方说明](docs/third-party.md)。

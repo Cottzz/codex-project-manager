@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.3 — 2026-10-16
+
+- Publish the reviewed English and Simplified Chinese introduction and three connected project workflows.
+- Add a reproducible 16-task notification-release example with dependencies, evidence revisions and an unresolved human gate.
+- Add actual application screenshots, a 45-second recording and both caption tracks. Explanatory diagrams are labeled separately.
+- Separate application and project directories in first-use instructions; keep the example in a user directory.
+- Application UI, runtime logic and approval boundaries remain unchanged from alpha.2.
+
+
 ## 0.1.0-alpha.2
 
 - Ship the white-content / light-gray-canvas UI, Simplified Chinese Noto font, consistent typography and reduced decorative icons.

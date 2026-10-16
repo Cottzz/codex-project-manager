@@ -1,14 +1,12 @@
-# Validation for 0.1.0-alpha.2
+# Validation for 0.1.0-alpha.3
 
-[Structured receipt](release-verification.json) binds the tested source and full Simplified Chinese font hashes.
+[Structured receipt](release-verification.json) binds this release to its unchanged application source and presentation assets.
 
-- 156 backend/parser tests passed in a complete run on the Windows worker using Ubuntu WSL/Python 3.12.3.
-- 53 frontend/configuration checks passed on native Windows Node. Initial failures came from changed copy assertions and a fixture missing the new status formatter; these were corrected before the final run.
-- 42 real-service browser checks passed on Windows Chrome: nine views, fourteen creation-form schemas/cancel paths, source reading, task dependencies, missing-index boundary, Simplified Chinese font loading, persisted event labels, actual UI task creation, CLI readback, refresh persistence and unchanged human gate. Screenshots were captured before the temporary UI-write check.
-- Five workflow screenshots use the shipped synthetic demo against the actual Python HTTP server. No private project data, mocked Store or real model invocation is involved. This small demo does not establish dense-project performance.
-- The complete font was converted to WOFF2 on Windows, preserving all30,890 mapped codepoints. Its OFL notice is included. Font loading passed; exhaustive visual inspection of every glyph is not claimed.
-- The Windows-built ZIP is checked for file hashes, documentation links and excluded private bindings, then extracted for a fresh-project CLI smoke check.
+- This release re-ran 3 coherent-example tests and 2 clean-install/cache-import tests on Windows / Ubuntu WSL. The example has 16 tasks and preserves its pending human gate, source-version difference and existing-directory refusal.
+- All 53 frontend/configuration tests passed on native Windows Node.
+- Application Python, browser logic, styles and font hashes are unchanged from alpha.2. The 156 backend and 42 real-browser checks in [alpha.2 validation](validation-alpha.2.md) are reused for that unchanged scope; they were not all re-run for alpha.3.
+- The approved presentation was generated on Windows from the actual service: full screenshots, clearly labeled explanatory diagrams, a 45-second recording and two caption tracks. Its review process checked 121 local review-page conditions, 10 first-use checks, separate user-directory readback and video playback. Those counts do not represent a public GitHub usability study.
+- Approval covers the homepage and demonstration materials only. No model, real delivery or human approval was invoked for the synthetic project. The first 3 sample-task completions only verify sample files, not business implementation.
+- Packaging checks every relative Markdown reference and source-file SHA, excludes project state and private environment bindings, and extracts the archive for a new example/CLI check. Public download and GitHub page readback are checked after release.
 
-GitHub Actions independently runs Python syntax and53 native Windows Node checks. It does not run the Unix service on native Windows. The Actions result must be checked for the specific commit.
-
-Earlier prototype test counts are not reused as public live-service proof. Optional configured SSH refresh, external Codex versions, new real approvals, complete accessibility, long-duration memory and sustained comfort remain separate verification scopes. Human acceptance is not inferred from passing tests.
+GitHub Actions separately runs the named Windows syntax and 53 Node checks. See its result for the exact published commit. Native Windows service, full screen-reader coverage, sustained comfort, long-term memory behavior and external Codex versions remain outside this release verification.

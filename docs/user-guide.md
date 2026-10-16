@@ -1,5 +1,7 @@
 # User guide / 使用说明
 
+Start with the [notification-release walkthrough / 发布通知连贯教程](presentation/story.md) to follow the current example. The principles below apply to your own projects.
+
 1. **Choose a project / 选择项目**: confirm the active project before writing. Attach only an explicit existing directory. Initializing it creates empty state, not verified history.
 2. **Read the overview and frontier / 总览与前沿**: tasks may be ready, in progress, blocked, waiting for human input, or waiting for validation. Read the reason and dependencies before acting.
 3. **Open a task / 任务详情**: inspect source, relations and checks. Claim, update progress or record a blocker. A produced file does not complete the task.

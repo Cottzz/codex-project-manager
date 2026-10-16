@@ -1,0 +1,99 @@
+{
+  "release": "0.1.0-alpha.2",
+  "backend": {
+    "platform": "Windows host / Ubuntu WSL Python 3.12.3",
+    "passed": 156,
+    "full_run": true
+  },
+  "frontend": {
+    "platform": "Windows Node",
+    "passed": 53
+  },
+  "browser": {
+    "platform": "Windows Chrome, actual local Python service",
+    "checks": [
+      "A theme actual computed background",
+      "Bundled Simplified Chinese font loaded",
+      "Published product identity",
+      "Actual persistence label",
+      "Persisted event label",
+      "No prototype review controls",
+      "Removed review bar takes no height",
+      "Human gate still pending",
+      "View overview",
+      "View plan",
+      "View frontier",
+      "View graph",
+      "View ideas",
+      "View evidence",
+      "View decisions",
+      "View threads",
+      "View timeline",
+      "Task original content and dependency readable",
+      "Dependency graph renders nodes",
+      "Missing optional index is explicit",
+      "Chat controls not pretending desktop control",
+      "Actual source file read",
+      "Form Goal fields and accessible name",
+      "Form Requirement fields and accessible name",
+      "Form Phase fields and accessible name",
+      "Form Task fields and accessible name",
+      "Form Idea fields and accessible name",
+      "Form Hypothesis fields and accessible name",
+      "Form Question fields and accessible name",
+      "Form Evidence fields and accessible name",
+      "Form Claim fields and accessible name",
+      "Form Decision fields and accessible name",
+      "Form Artifact fields and accessible name",
+      "Form File fields and accessible name",
+      "Form Thread fields and accessible name",
+      "Form HumanGate fields and accessible name",
+      "UI write reaches real Store",
+      "CLI reads UI write",
+      "UI write survives refresh",
+      "No human approval created by UI tests",
+      "No prototype API requests",
+      "No uncaught browser exceptions"
+    ],
+    "screens": [
+      "workspace",
+      "tasks",
+      "relations",
+      "chats",
+      "sources"
+    ],
+    "mocked_store": false,
+    "models_invoked": false
+  },
+  "font": {
+    "input_sha256": "763146584cf0710223441356b4395e279021b0806c196614377a7a0174ae074a",
+    "output_sha256": "7fb052c1a7861126753abb15a3913f59c46edfb80386983b81e490594af0c797",
+    "bytes": 7782980,
+    "mapped_codepoints": 30890,
+    "full_font_no_subsetting": true,
+    "names": {
+      "0": "漏 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.",
+      "5": "Version 2.04;241114210130;non-release",
+      "1": "Noto Sans SC",
+      "2": "Regular",
+      "13": "This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.",
+      "14": "http://scripts.sil.org/OFL"
+    }
+  },
+  "source_sha256": {
+    "pgw.py": "e88dfe3548720ad91bb38cbc2e26c2e917b2c6f8880f98226c3526bd8d73805c",
+    "web/index.html": "342cbef7f15780092de01b1da2cd1c8fa6648765935053b8485dee8d60fa01ec",
+    "web/app.js": "dc28845eb8cae0d0178db77afdce982e9cdde5f1a6ba5999ca245de442e6dab8",
+    "web/style.css": "99afe238c015d05df7353b61c96ffcbe390342c0faed5e4c8cba95b83536701c",
+    "web/visual.js": "3d2b9d1bd47abc036ec329f786d9c17e5fdae64fd6438ab5d396718e7f4230c0",
+    "web/delivery.js": "d1fcd36b68c4ab12e813b8cf4986a1034b581b2de8780d73529f12873d58367e",
+    "web/fonts/ui-sc.woff2": "7fb052c1a7861126753abb15a3913f59c46edfb80386983b81e490594af0c797",
+    "tests/test_runtime_ui.mjs": "631a39603fcb72e40d14c29872d9ac8db3ca79990e8df6ac6585d6e2a8d084ae",
+    "tests/test_release_install.py": "ad850d95354574fadcd46e446ab75446ca4dcc14c209d5bd8c738ba2fdc49f18"
+  },
+  "limitations": [
+    "No fresh model execution or approval roundtrip",
+    "No full screen-reader or sustained comfort conclusion",
+    "No native Windows core support"
+  ]
+}
