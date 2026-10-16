@@ -41,6 +41,12 @@ class ReleaseInstallTest(unittest.TestCase):
                             self.fail('Fresh service did not respond')
                         self.assertEqual(data['project']['data']['project_id'], ident)
                         self.assertEqual(data['project']['title'], 'Release readiness demo')
+                        for asset, mime in [('/visual.js','javascript'),('/delivery.js','javascript'),('/fonts/ui-sc.woff2','font/woff2')]:
+                            with opener.open(f'http://127.0.0.1:{port}'+asset) as response:
+                                self.assertIn(mime, response.headers['Content-Type'])
+                                self.assertGreater(len(response.read()), 100)
+                        with opener.open(f'http://127.0.0.1:{port}/style.css') as response:
+                            self.assertIn(b'--bg:#F6F6F7', response.read())
                         gate = next(n for n in data['nodes'] if n['id']=='REVIEW-001')
                         self.assertNotEqual(gate['status'], 'approved')
                     finally:

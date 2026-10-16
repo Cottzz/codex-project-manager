@@ -1,14 +1,16 @@
 # Codex Project Manager
 
+[![Windows checks](https://github.com/Cottzz/codex-project-manager/actions/workflows/checks.yml/badge.svg)](https://github.com/Cottzz/codex-project-manager/actions/workflows/checks.yml) · [MIT](LICENSE)
+
 **Local-first project management for Codex and AI coding workflows.**
 
 Keep tasks, dependencies, decisions, evidence and chat references in one persistent project graph. Continue a project across conversations without treating a chat summary as the source of truth.
 
-[Download alpha](https://github.com/Cottzz/codex-project-manager/releases/tag/v0.1.0-alpha.1) · [简体中文](README.zh-CN.md) · [Quick start](#quick-start) · [User guide](docs/user-guide.md) · [Architecture](docs/architecture.md) · [Roadmap](docs/roadmap.md)
+[Download alpha](https://github.com/Cottzz/codex-project-manager/releases/tag/v0.1.0-alpha.2) · [简体中文](README.zh-CN.md) · [Quick start](#quick-start) · [User guide](docs/user-guide.md) · [Architecture](docs/architecture.md) · [Roadmap](docs/roadmap.md)
 
 ![Current workspace with synthetic demonstration data](docs/images/workspace.png)
 
-*The screenshot shows the current application with synthetic project data. The redesigned white UI is still under review and is not advertised as the released interface.*
+The released application uses the white-content / light-gray-canvas interface shown here. Screenshots use the shipped synthetic project against the actual local service. [Explore five workflows](docs/workflows.md).
 
 ## Who it is for
 
@@ -63,7 +65,7 @@ Use the schemas returned by `tools`. Mutations carry a stable `request_id`; vers
 
 ## Release status and boundaries
 
-This is the **first public alpha**, not a claim of production maturity. Read [validation scope](docs/validation.md) and [known limits](docs/limitations.md) before relying on a workflow. Existing desktop chats can be discovered and linked; this does not grant shared control of a running desktop chat. Ended turns do not automatically complete tasks. Search and graphs are bounded and show truncation.
+This is a **public alpha**, not a claim of production maturity. Read [validation scope](docs/validation.md) and [known limits](docs/limitations.md) before relying on a workflow. Existing desktop chats can be discovered and linked; this does not grant shared control of a running desktop chat. Ended turns do not automatically complete tasks. Search and graphs are bounded and show truncation.
 
 The service binds to loopback and assumes a single trusted local user. Do not expose it directly to the Internet. There is no hosted authentication, multi-user authorization, or SLA. Project data stays in your chosen directory; optional Codex/SSH actions have their own explicitly configured data paths.
 

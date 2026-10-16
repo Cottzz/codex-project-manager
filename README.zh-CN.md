@@ -1,14 +1,16 @@
 # Codex Project Manager
 
+[![Windows checks](https://github.com/Cottzz/codex-project-manager/actions/workflows/checks.yml/badge.svg)](https://github.com/Cottzz/codex-project-manager/actions/workflows/checks.yml) · [MIT](LICENSE)
+
 **面向 Codex 与 AI 编码协作的本地项目管理工作区。**
 
 将任务、依赖、决定、证据、产物和聊天关联保存在同一个持久项目图中，让项目能够跨对话接续。聊天摘要用于定位，实际原件与验证决定状态。
 
-[下载 alpha](https://github.com/Cottzz/codex-project-manager/releases/tag/v0.1.0-alpha.1) · [English](README.md) · [使用说明](docs/user-guide.md) · [架构](docs/architecture.md) · [路线图](docs/roadmap.md)
+[下载 alpha](https://github.com/Cottzz/codex-project-manager/releases/tag/v0.1.0-alpha.2) · [English](README.md) · [使用说明](docs/user-guide.md) · [架构](docs/architecture.md) · [路线图](docs/roadmap.md)
 
 ![当前应用，使用合成演示数据](docs/images/workspace.png)
 
-上图为当前应用的合成示例。A白系新版界面仍在完整原型审核，未作为已发布界面宣传。
+公开版本已采用「白色内容＋浅灰画布」新版界面。截图来自实际本地服务与随包合成项目，下载后使用同一界面。[查看五条核心流程](docs/workflows.md)。
 
 ## 它解决什么问题
 

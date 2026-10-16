@@ -739,11 +739,11 @@ def serve(store, port, demo=False):
                     if not uri.startswith("/"):
                         raise Conflict("此对象没有可预览的本地原件")
                     return self.send(local_source_preview(source, n["data"].get("message_id")))
-                files = {"/": "index.html", "/app.js": "app.js", "/style.css": "style.css"}
+                files = {"/": "index.html", "/app.js": "app.js", "/style.css": "style.css", "/visual.js": "visual.js", "/delivery.js": "delivery.js", "/fonts/ui-sc.woff2": "fonts/ui-sc.woff2"}
                 if u.path not in files:
                     return self.send({"error": "Not found"}, 404)
                 p = HERE / "web" / files[u.path]
-                return self.send(p.read_bytes(), content_type=(mimetypes.guess_type(p.name)[0] or "text/plain") + "; charset=utf-8")
+                return self.send(p.read_bytes(), content_type=("font/woff2" if p.suffix == ".woff2" else (mimetypes.guess_type(p.name)[0] or "text/plain") + "; charset=utf-8"))
             except (Conflict, BridgeError, ValueError, KeyError, OSError, UnicodeError) as e:
                 return self.send({"error": str(e)}, 400)
 

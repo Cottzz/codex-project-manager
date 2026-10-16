@@ -6,7 +6,7 @@ Portable core source, explicit initialization, CLI/MCP/local UI, synthetic examp
 
 ## Next, subject to verified work
 
-- Finish human review of the A white interactive prototype before adopting it as the released UI.
+- Collect sustained-use feedback on the released white UI, keyboard navigation and dense-graph reading.
 - Improve full-graph readability without concealing dependencies or unknown relationships.
 - Expand accessibility, long-session and first-use usability evidence.
 - Make optional worker provisioning easier while preserving exact source scope and host identity.

@@ -147,7 +147,7 @@ function agentFixture(overrides={}) {
   const context=vm.createContext({projectId:'A',state:{nodes:[],truncated:false},
     managedRuntime:null,managedRuntimeRead:{state:'unread',at:null,error:''},
     frontier:new Map(),statuses:{completed:'已完成',pending_validation:'待验证'},buckets:{},observedThreads:new Map(),observedThreadsOffset:0,observedThreadsCoverage:{total:0,start:0,shown:0,truncated:false},$:()=>box,...overrides});
-  const source=actualEscape+'\n'+
+  const source=app.match(/^function runtimeStatusLabel\(.*$/m)[0]+'\n'+actualEscape+'\n'+
     app.match(/^function observedThreadStatus\(.*$/m)[0]+'\n'+
     app.match(/^function observationTime\(.*$/m)[0]+'\n'+
     app.match(/^function observationTimeLabel\(.*$/m)[0]+'\n'+
@@ -175,7 +175,7 @@ test('fresh readonly metadata is used without claiming desktop shared control',(
   const row=context.agentObservationRows()[0];
   assert.equal(row.source,'Codex 独立只读连接');assert.equal(row.name,'最新标题');
   assert.equal(row.observedAt,'2026-09-30T11:00:00.000Z');
-  assert.match(row.status,/桌面运行状态未知/);
+  assert.match(row.status,/无法确认桌面聊天状态/);
   context.renderAgentStatus();assert.match(box.innerHTML,/该时刻快照/);
 });
 test('failed readonly refresh keeps old time and labels cached activity unknown',()=>{
@@ -353,7 +353,7 @@ test('live output escapes content and distinguishes item end from task end', () 
  const context=vm.createContext({esc:x=>String(x??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;')});
  vm.runInContext(actualOutputRender,context);
  const html=context.renderManagedOutput({status:'inProgress',output:{text:'<script>bad</script>',turn_id:'turn-A',item_id:'item-A',observed_at:'time-A',limit_chars:1024,truncated:true,complete:true}});
- assert.ok(html.includes('&lt;script&gt;bad&lt;/script&gt;'));assert.ok(!html.includes('<script>'));assert.ok(html.includes('turn-A')&&html.includes('item-A'));assert.ok(html.includes('尾部截断')&&html.includes('任务状态分别核对'));assert.ok(html.includes('<details open>'));
+ assert.ok(html.includes('&lt;script&gt;bad&lt;/script&gt;'));assert.ok(!html.includes('<script>'));assert.ok(html.includes('turn-A')&&html.includes('item-A'));assert.ok(html.includes('尾部摘录，已截断')&&html.includes('任务状态分别核对'));assert.ok(html.includes('<details open>'));
  assert.equal(context.renderManagedOutput({status:'completed'}),'');
 });
 
@@ -425,7 +425,7 @@ test('managed output links keep missing tasks unknown, cap lists, and exclude an
  assert.equal(row.references.outputsUnavailable,1);context.renderAgentStatus();
  assert.match(box.innerHTML,/另 1 项任务未显示/);assert.match(box.innerHTML,/另 2 项产物未显示/);
  assert.match(box.innerHTML,/任务定位未载入或类型不符/);assert.match(box.innerHTML,/未登记原件定位/);
- assert.doesNotMatch(box.innerHTML,/foreign/);assert.match(box.innerHTML,/登记关系，不代表已通过/);
+ assert.doesNotMatch(box.innerHTML,/foreign/);assert.match(box.innerHTML,/关联产物（未自动验收）/);
 });
 
 

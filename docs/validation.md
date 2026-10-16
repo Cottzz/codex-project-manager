@@ -1,12 +1,14 @@
-# Validation for 0.1.0-alpha.1
+# Validation for 0.1.0-alpha.2
 
-The release candidate was checked on a Windows worker: Ubuntu WSL/Python 3.12.3 for the Unix core and native Windows/Node for frontend contracts. [Structured receipt](release-verification.json) binds the relevant source hashes.
+[Structured receipt](release-verification.json) binds the tested source and full Simplified Chinese font hashes.
 
-- 156 distinct backend/parser cases: the first run passed155 and found one obsolete product-name assertion. After correction, all26 cases in its module and both clean-install/cache-import cases passed. Unchanged passing results were reused; this is not represented as a second complete156-case run.
-- 53 frontend/configuration checks passed on Windows.
-- New synthetic workspace, CLI/actual HTTP identity, restart persistence and preserved human gate were exercised. First cache import rejects a foreign identity/incompatible schema and preserves unrelated pointers.
-- README screenshot comes from the actual candidate service and the shipped synthetic demo. No personal project snapshot is included.
+- 156 backend/parser tests passed in a complete run on the Windows worker using Ubuntu WSL/Python 3.12.3.
+- 53 frontend/configuration checks passed on native Windows Node. Initial failures came from changed copy assertions and a fixture missing the new status formatter; these were corrected before the final run.
+- 42 real-service browser checks passed on Windows Chrome: nine views, fourteen creation-form schemas/cancel paths, source reading, task dependencies, missing-index boundary, Simplified Chinese font loading, persisted event labels, actual UI task creation, CLI readback, refresh persistence and unchanged human gate. Screenshots were captured before the temporary UI-write check.
+- Five workflow screenshots use the shipped synthetic demo against the actual Python HTTP server. No private project data, mocked Store or real model invocation is involved. This small demo does not establish dense-project performance.
+- The complete font was converted to WOFF2 on Windows, preserving all30,890 mapped codepoints. Its OFL notice is included. Font loading passed; exhaustive visual inspection of every glyph is not claimed.
+- The Windows-built ZIP is checked for file hashes, documentation links and excluded private bindings, then extracted for a fresh-project CLI smoke check.
 
-GitHub Actions separately runs Python syntax and the53 native Windows Node checks. Its result is visible on the Actions page; it does not pretend to run the Unix service on native Windows. Optional configured SSH refresh has configuration/cache-invariant tests, but a fresh full remote round-trip is not claimed for this release.
+GitHub Actions independently runs Python syntax and53 native Windows Node checks. It does not run the Unix service on native Windows. The Actions result must be checked for the specific commit.
 
-Earlier private UI prototype counts are not included here. Complete accessibility, long-duration memory, sustained comfort, external Codex version compatibility and user acceptance remain separate. Initial test warnings and the old-name failure were retained in the maintainer's verification record.
+Earlier prototype test counts are not reused as public live-service proof. Optional configured SSH refresh, external Codex versions, new real approvals, complete accessibility, long-duration memory and sustained comfort remain separate verification scopes. Human acceptance is not inferred from passing tests.

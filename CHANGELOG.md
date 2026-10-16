@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.2
+
+- Ship the white-content / light-gray-canvas UI, Simplified Chinese Noto font, consistent typography and reduced decorative icons.
+- Retain application routing, task gates and original project content; remove prototype-only messaging and endpoints.
+- Add five actual-service workflow screenshots and explicit repository presentation references.
+- Validate static assets, CLI/HTTP persistence, and released UI on Windows/Ubuntu WSL.
+
+
 ## 0.1.0-alpha.1 — 2026-10-16
 
 First public source release of Codex Project Manager.

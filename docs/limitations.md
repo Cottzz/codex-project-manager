@@ -1,6 +1,6 @@
 # Known limits
 
-- First public alpha; original application UI is released, A white redesign remains a review prototype.
+- Public alpha with the white-content / light-gray-canvas UI. Visual release does not establish complete accessibility or user acceptance.
 - Unix file locks: macOS/Linux service; Windows through Ubuntu WSL. Native Windows service is unsupported.
 - Single trusted local user; loopback binding, no hosted tenancy or remote multi-user authorization.
 - Existing Codex desktop chats are read-only sources, not transparently resumed/shared-control sessions.
