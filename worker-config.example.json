@@ -1,0 +1,19 @@
+{
+  "default_worker": "my-windows-worker",
+  "workers": {
+    "my-windows-worker": {
+      "expected_hostname": "YOUR-WINDOWS-HOST",
+      "remote_base": "C:/cpm-work",
+      "wsl_base": "/mnt/c/cpm-work",
+      "python_executable": "C:/Python/python.exe",
+      "parser_pythonpath": "/mnt/c/cpm-deps"
+    }
+  },
+  "projects": {
+    "REPLACE_WITH_PROJECT_ID": {
+      "project_root": "/absolute/project",
+      "source_root": "/absolute/source",
+      "name": "source"
+    }
+  }
+}

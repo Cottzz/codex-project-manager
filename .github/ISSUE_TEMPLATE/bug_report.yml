@@ -1,0 +1,22 @@
+name: Bug report
+description: Report a reproducible problem using synthetic data.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Minimal reproduction
+      description: Do not attach credentials, project event logs, or private chats.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Version, operating system, Python and Node versions
+    validations:
+      required: true

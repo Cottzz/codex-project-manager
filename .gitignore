@@ -1,0 +1,12 @@
+.project-graph/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+node_modules/
+*.log
+dist/
+.venv/
+.DS_Store
+worker-config.json
